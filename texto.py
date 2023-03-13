@@ -26,10 +26,19 @@ def bom_dia():
     else:
         saudacao = "Bom dia"
 
-    texto = f"{saudacao} , sou o Vitor, estou aqui para te auxiliar 😁"
+    texto = f"{saudacao}, sou o Vitor, estou aqui para te auxiliar 😁"
     return texto
 
 
-def remoto():
+def acesso():
     texto = 'Consegue me passar o acesso da máquina para verificar? Pode ser AnyDesk, TeamViewer, Acesso Remoto... '
     return texto
+
+def auxiliar():
+    texto = 'Em que posso te ajudar?'
+    return texto
+
+def algo_mais_simples():
+    texto = 'Posso auxiliar em mais alguma coisa?'
+    return texto
+

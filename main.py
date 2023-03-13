@@ -11,9 +11,11 @@ class Binds(DesktopBot):
         while True:
             time.sleep(0.01)
             self.bind("ctrl+1", texto.bom_dia())
-            self.bind("ctrl+2", texto.fim())
-            self.bind("ctrl+3", texto.remoto())
+            self.bind("ctrl+2", texto.auxiliar())
+            self.bind("ctrl+3", texto.acesso())
             self.bind("ctrl+4", texto.algo_mais())
+            self.bind("ctrl+5", texto.algo_mais_simples())
+            self.bind("ctrl+6", texto.fim())
             time.sleep(0.01)
 
     def bind(self, tecla, texto):
