@@ -1,4 +1,5 @@
 from datetime import time as tm, date, datetime
+import pyautogui as py
 
 
 def fim():
@@ -34,11 +35,17 @@ def acesso():
     texto = 'Consegue me passar o acesso da máquina para verificar? Pode ser AnyDesk, TeamViewer, Acesso Remoto... '
     return texto
 
+
 def auxiliar():
     texto = 'Em que posso te ajudar?'
     return texto
+
 
 def algo_mais_simples():
     texto = 'Posso auxiliar em mais alguma coisa?'
     return texto
 
+
+def ibexpert_caminho():
+    caminho = r'\Sistema\MK4\Uteis\ibexpert\ibexpert.exe'
+    return caminho

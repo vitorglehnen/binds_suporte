@@ -1,4 +1,5 @@
 from botcity.core import DesktopBot
+import pyautogui as py
 import texto
 import keyboard as kb
 import time
@@ -16,6 +17,7 @@ class Binds(DesktopBot):
             self.bind("ctrl+4", texto.algo_mais())
             self.bind("ctrl+5", texto.algo_mais_simples())
             self.bind("ctrl+6", texto.fim())
+            self.bind("win+r", texto.ibexpert_caminho())
             time.sleep(0.01)
 
     def bind(self, tecla, texto):
