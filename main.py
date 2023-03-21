@@ -20,6 +20,7 @@ class Binds(DesktopBot):
             self.bind_win("ctrl+7", texto.ibexpert_caminho())
             self.bind_win("ctrl+8", texto.mk4_caminho())
             self.bind_win("ctrl+9", texto.impressora_caminho())
+            self.bind_stop("ctrl+*")
             time.sleep(0.01)
 
     def bind(self, tecla, texto):
@@ -31,6 +32,20 @@ class Binds(DesktopBot):
             self.paste(caminho)
             time.sleep(0.1)
             py.press('enter')
+
+    def bind_stop(self, tecla):
+        boolean = True
+
+        if kb.is_pressed(tecla):
+            print("Stopped")
+
+            while boolean:
+                time.sleep(0.01)
+                if kb.is_pressed("ctrl+."):
+                    boolean = False
+                    print("Running")
+                time.sleep(0.01)
+
 
 
 Binds.main()
