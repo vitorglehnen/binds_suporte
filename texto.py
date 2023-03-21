@@ -49,3 +49,11 @@ def algo_mais_simples():
 def ibexpert_caminho():
     caminho = r'\Sistema\MK4\Uteis\ibexpert\ibexpert.exe'
     return caminho
+
+def mk4_caminho():
+    caminho = r'\Sistema\MK4\MKeyAtu.exe'
+    return caminho
+
+def impressora_caminho():
+    caminho = r'control printers'
+    return caminho

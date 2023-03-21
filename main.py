@@ -17,12 +17,20 @@ class Binds(DesktopBot):
             self.bind("ctrl+4", texto.algo_mais())
             self.bind("ctrl+5", texto.algo_mais_simples())
             self.bind("ctrl+6", texto.fim())
-            self.bind("win+r", texto.ibexpert_caminho())
+            self.bind_win("ctrl+7", texto.ibexpert_caminho())
+            self.bind_win("ctrl+8", texto.mk4_caminho())
+            self.bind_win("ctrl+9", texto.impressora_caminho())
             time.sleep(0.01)
 
     def bind(self, tecla, texto):
         if kb.is_pressed(tecla):
             self.paste(texto)
+
+    def bind_win(self, tecla, caminho):
+        if kb.is_pressed(tecla):
+            self.paste(caminho)
+            time.sleep(0.1)
+            py.press('enter')
 
 
 Binds.main()
