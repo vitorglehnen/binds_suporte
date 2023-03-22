@@ -1,4 +1,5 @@
 from botcity.core import DesktopBot
+from winotify import Notification
 import pyautogui as py
 import texto
 import keyboard as kb
@@ -8,6 +9,10 @@ import time
 class Binds(DesktopBot):
     def action(self, execution=None):
         print("Running")
+        toast = Notification(app_id="Binds suporte",
+                             title="Running",
+                             msg="Em execução!")
+        toast.show()
 
         while True:
             time.sleep(0.01)
@@ -30,7 +35,7 @@ class Binds(DesktopBot):
     def bind_win(self, tecla, caminho):
         if kb.is_pressed(tecla):
             self.paste(caminho)
-            time.sleep(0.1)
+            time.sleep(0.8)
             py.press('enter')
 
     def bind_stop(self, tecla):
@@ -38,14 +43,21 @@ class Binds(DesktopBot):
 
         if kb.is_pressed(tecla):
             print("Stopped")
+            toast = Notification(app_id="Binds suporte",
+                                 title="Stopped",
+                                 msg="Serviço parado!")
+            toast.show()
 
             while boolean:
                 time.sleep(0.01)
                 if kb.is_pressed("ctrl+."):
                     boolean = False
                     print("Running")
+                    toast = Notification(app_id="Binds suporte",
+                                         title="Running",
+                                         msg="Em execução!")
+                    toast.show()
                 time.sleep(0.01)
-
 
 
 Binds.main()
