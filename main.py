@@ -1,5 +1,8 @@
+import sys
 from botcity.core import DesktopBot
 from winotify import Notification
+from PIL import Image
+import pystray
 import pyautogui as py
 import texto
 import keyboard as kb
@@ -7,12 +10,13 @@ import time
 
 
 class Binds(DesktopBot):
-    def action(self, execution=None):
-        print("Running")
+
+    async def action(self, execution=None):
         toast = Notification(app_id="Binds suporte",
                              title="Running",
                              msg="Em execução!")
         toast.show()
+        
 
         while True:
             time.sleep(0.01)
@@ -52,12 +56,23 @@ class Binds(DesktopBot):
                 time.sleep(0.01)
                 if kb.is_pressed("ctrl+."):
                     boolean = False
-                    print("Running")
                     toast = Notification(app_id="Binds suporte",
                                          title="Running",
                                          msg="Em execução!")
                     toast.show()
                 time.sleep(0.01)
+
+    def on_exit_clicked(self, icon):
+        icon.stop()
+        sys.exit()
+
+    async def icone_bandeja(self):
+        icon = pystray.Icon('my_app_name', Image.open('ideia.png'))
+        icon.menu = pystray.Menu(
+            pystray.MenuItem('Exit', self.on_exit_clicked)
+        )
+
+        icon.run()
 
 
 Binds.main()
