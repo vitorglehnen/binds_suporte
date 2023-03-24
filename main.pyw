@@ -19,7 +19,7 @@ def on_exit_clicked(icon):
 
 
 def icone_bandeja():
-    icon = pystray.Icon('my_app_name', Image.open(r'C:\Users\vitor.lehnen\Desktop\binds_suporte\ideia.png'),
+    icon = pystray.Icon('my_app_name', Image.open(r'C:\Users\vitor.lehnen\Desktop\binds_suporte\icons\icon_on.png'),
                         'Binds '
                         'Suporte')
 
@@ -64,6 +64,7 @@ def bind_win(tecla, caminho):
 
 
 def bind_stop(tecla):
+    global icon
     boolean = True
 
     if kb.is_pressed(tecla):
@@ -81,6 +82,7 @@ def bind_stop(tecla):
                                      title="Running",
                                      msg="Em execução!")
                 toast.show()
+
             time.sleep(0.01)
 
 
