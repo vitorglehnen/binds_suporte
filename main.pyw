@@ -8,28 +8,35 @@ import pystray
 import texto
 import time
 
+loop = False
+
 
 def on_exit_clicked(icon):
+    global loop
     icon.stop()
+    loop = True
+    return loop
 
 
 def icone_bandeja():
-    icon = pystray.Icon('my_app_name', Image.open('ideia.png'), 'Binds Suporte')
+    icon = pystray.Icon('my_app_name', Image.open(r'C:\Users\vitor.lehnen\Desktop\binds_suporte\ideia.png'),
+                        'Binds '
+                        'Suporte')
 
     icon.menu = pystray.Menu(
-        pystray.MenuItem('Exit', on_exit_clicked)
-    )
+        pystray.MenuItem('Exit', on_exit_clicked))
 
     icon.run()
 
 
 def action():
+    global loop
     toast = Notification(app_id="Binds suporte",
                          title="Running",
                          msg="Em execução!")
     toast.show()
 
-    while True:
+    while not loop:
         time.sleep(0.01)
         bind("ctrl+1", texto.bom_dia())
         bind("ctrl+2", texto.auxiliar())
