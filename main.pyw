@@ -32,27 +32,31 @@ class Binds:
 
         while not self.loop:
             time.sleep(0.05)
-            self.bind("ctrl+1", texto.bom_dia())
-            self.bind("ctrl+2", texto.auxiliar())
-            self.bind("ctrl+3", texto.acesso())
-            self.bind("ctrl+4", texto.algo_mais())
-            self.bind("ctrl+5", texto.algo_mais_simples())
-            self.bind("ctrl+6", texto.fim())
-            self.bind_win("ctrl+7", texto.ibexpert_caminho())
-            self.bind_win("ctrl+8", texto.mk4_caminho())
-            self.bind_win("ctrl+9", texto.impressora_caminho())
+            self.bind()
             self.bind_stop("ctrl+*")
             time.sleep(0.05)
 
-    def bind(self, tecla, frase):
-        if kb.is_pressed(tecla):
-            self.copia_cola(frase)
+    def bind(self):
+        if kb.is_pressed("ctrl+1"):
+            self.copia_cola(texto.bom_dia())
+        elif kb.is_pressed("ctrl+2"):
+            self.copia_cola(texto.auxiliar())
+        elif kb.is_pressed("ctrl+3"):
+            self.copia_cola(texto.acesso())
+        elif kb.is_pressed("ctrl+4"):
+            self.copia_cola(texto.algo_mais())
+        elif kb.is_pressed("ctrl+5"):
+            self.copia_cola(texto.algo_mais_simples())
+        elif kb.is_pressed("ctrl+6"):
+            self.copia_cola(texto.fim())
+        elif kb.is_pressed("ctrl+7"):
+            self.copia_cola(texto.ibexpert_caminho())
+        elif kb.is_pressed("ctrl+8"):
+            self.copia_cola(texto.mk4_caminho())
+        elif kb.is_pressed("ctrl+9"):
+            self.copia_cola(texto.impressora_caminho())
 
-    def bind_win(self, tecla, caminho):
-        if kb.is_pressed(tecla):
-            self.copia_cola(caminho)
-            time.sleep(0.8)
-            py.press('enter')
+        time.sleep(0.01)
 
     def bind_stop(self, tecla):
         boolean = True
@@ -62,16 +66,17 @@ class Binds:
             print("Stopped")
             toast.show()
             self.icon.icon = Image.open(r'icons\icon_off.png')
+            time.sleep(0.1)
 
             while boolean:
-                time.sleep(0.05)
-                if kb.is_pressed("ctrl+0"):
+                time.sleep(0.1)
+                if kb.is_pressed("ctrl+*"):
                     toast = Notification(app_id="Binds suporte", title="Running", msg="Em execução!")
                     toast.show()
                     print("Running")
                     self.icon.icon = Image.open(r'icons\icon_on.png')
                     boolean = False
-                time.sleep(0.05)
+                time.sleep(0.1)
 
     def copia_cola(self, str):
         pyperclip.copy(str)
