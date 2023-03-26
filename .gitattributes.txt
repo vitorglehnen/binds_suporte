@@ -1,1 +1,0 @@
-linguagem linguist-language=PYTHON
