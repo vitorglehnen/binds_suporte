@@ -10,70 +10,81 @@ import time
 
 
 class Binds:
-    loop = False
-
     def __init__(self):
-        threading.Thread(target=self.action).start()
-        self.define_icone(r'icons\icon_on.png')
+        self.loop = False
 
+        threading.Thread(target=self.action).start()  # Inicia em outra thread o loop de binds
+        self.define_icone(r'icons\icon_on.png')     # Inicia o ícone na bandeja do windows
+
+    def action(self):
+        Notification(app_id="Binds suporte", title="Running", msg="Em execução!").show()
+
+        while not self.loop:
+            time.sleep(0.01)
+            self.bind()
+            time.sleep(0.01)
+
+    # Verifica se a tecla clicada se encaixa em algumas das pré definidas, caso sim, cola a frase referente
+    def bind(self):
+        frase = None
+        if kb.is_pressed("ctrl+1"):
+            frase = texto.bom_dia()
+        elif kb.is_pressed("ctrl+2"):
+            frase = texto.auxiliar()
+        elif kb.is_pressed("ctrl+3"):
+            frase = texto.acesso()
+        elif kb.is_pressed("ctrl+4"):
+            frase = texto.algo_mais()
+        elif kb.is_pressed("ctrl+5"):
+            frase = texto.algo_mais_simples()
+        elif kb.is_pressed("ctrl+6"):
+            frase = texto.fim()
+        elif kb.is_pressed("ctrl+7"):
+            frase = texto.ibexpert_caminho()
+        elif kb.is_pressed("ctrl+8"):
+            frase = texto.mk4_caminho()
+        elif kb.is_pressed("ctrl+9"):
+            frase = texto.impressora_caminho()
+        elif kb.is_pressed("ctrl+*"):
+            self.stop()
+
+        if not frase is None:
+            self.copy_paste(frase)
+
+        time.sleep(0.01)
+
+    # Configuração do ícone na bandeja
+    def define_icone(self, image):
+        self.icon = pystray.Icon('my_app_name', Image.open(image), 'Binds Suporte')
+        self.icon.menu = pystray.Menu(pystray.MenuItem('Sair', self.on_exit_clicked))
+        self.icon.run()
+
+    # Define ação do programa ao clicar no botão de "Sair" no ícone da bandeja
     def on_exit_clicked(self, icon):
         icon.stop()
         self.loop = True
         return self.loop
 
-    def define_icone(self, image):
-        self.icon = pystray.Icon('my_app_name', Image.open(image), 'Binds Suporte')
-        self.icon.menu = pystray.Menu(pystray.MenuItem('Exit', self.on_exit_clicked))
-        self.icon.run()
+    # Função para dar um stop no programa, não deixando fazer nenhuma ação
+    def stop(self):
+        ativo = True
 
-    def action(self):
-        toast = Notification(app_id="Binds suporte", title="Running", msg="Em execução!")
-        toast.show()
+        Notification(app_id="Binds suporte", title="Stopped", msg="Serviço parado!").show()
 
-        while not self.loop:
-            time.sleep(0.05)
-            self.bind("ctrl+1", texto.bom_dia())
-            self.bind("ctrl+2", texto.auxiliar())
-            self.bind("ctrl+3", texto.acesso())
-            self.bind("ctrl+4", texto.algo_mais())
-            self.bind("ctrl+5", texto.algo_mais_simples())
-            self.bind("ctrl+6", texto.fim())
-            self.bind_win("ctrl+7", texto.ibexpert_caminho())
-            self.bind_win("ctrl+8", texto.mk4_caminho())
-            self.bind_win("ctrl+9", texto.impressora_caminho())
-            self.bind_stop("ctrl+*")
-            time.sleep(0.05)
+        # Alterna ícone da bandeja para a luz desligada, demonstrando que o programa está parado
+        self.icon.icon = Image.open(r'icons\icon_off.png')
+        time.sleep(0.1)
 
-    def bind(self, tecla, frase):
-        if kb.is_pressed(tecla):
-            self.copia_cola(frase)
+    # Após parar o programa, fica nesse loop, que espera a tecla de stop ser clicada novamente para voltar a execução
+        while ativo:
+            time.sleep(0.1)
+            if kb.is_pressed("ctrl+*"):
+                Notification(app_id="Binds suporte", title="Running", msg="Em execução!").show()
+                self.icon.icon = Image.open(r'icons\icon_on.png')
+                ativo = False
+            time.sleep(0.1)
 
-    def bind_win(self, tecla, caminho):
-        if kb.is_pressed(tecla):
-            self.copia_cola(caminho)
-            time.sleep(0.8)
-            py.press('enter')
-
-    def bind_stop(self, tecla):
-        boolean = True
-
-        if kb.is_pressed(tecla):
-            toast = Notification(app_id="Binds suporte", title="Stopped", msg="Serviço parado!")
-            print("Stopped")
-            toast.show()
-            self.icon.icon = Image.open(r'icons\icon_off.png')
-
-            while boolean:
-                time.sleep(0.05)
-                if kb.is_pressed("ctrl+0"):
-                    toast = Notification(app_id="Binds suporte", title="Running", msg="Em execução!")
-                    toast.show()
-                    print("Running")
-                    self.icon.icon = Image.open(r'icons\icon_on.png')
-                    boolean = False
-                time.sleep(0.05)
-
-    def copia_cola(self, str):
+    def copy_paste(self, str):
         pyperclip.copy(str)
         py.hotkey('ctrl', 'v')
 
