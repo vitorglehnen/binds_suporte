@@ -1,3 +1,1 @@
-linguist-vendored
-.html linguist-vendored=false
-.python linguist-detectable=true
+build/main/* linguist-vendored
