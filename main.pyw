@@ -20,9 +20,9 @@ class Binds:
         Notification(app_id="Binds suporte", title="Running", msg="Em execução!").show()
 
         while not self.loop:
-            time.sleep(0.05)
+            time.sleep(0.01)
             self.bind()
-            time.sleep(0.05)
+            time.sleep(0.01)
 
     # Verifica se a tecla clicada se encaixa em algumas das pré definidas, caso sim, cola a frase referente
     def bind(self):
@@ -32,7 +32,7 @@ class Binds:
         elif kb.is_pressed("ctrl+2"):
             frase = texto.auxiliar()
         elif kb.is_pressed("ctrl+3"):
-            frase = texto.algo_mais()
+            frase = texto.acesso()
         elif kb.is_pressed("ctrl+4"):
             frase = texto.algo_mais()
         elif kb.is_pressed("ctrl+5"):
