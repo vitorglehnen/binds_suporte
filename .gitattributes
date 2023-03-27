@@ -1,1 +1,3 @@
-Python linguist-language=Python
+linguist-vendored
+.php linguist-vendored=false
+.python linguist-detectable=true
