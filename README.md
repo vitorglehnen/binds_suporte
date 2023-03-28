@@ -22,6 +22,7 @@ Para sair do programa:
 <br>
 <br>
 Ao clicar em um conjunto de teclas pre definidas, irá colar em seu campo selecionado o texto configurado (EXEMPLO):
+<br>
 ![image](https://user-images.githubusercontent.com/107063776/228312259-20806d1a-a70b-4ebc-b806-fc823419bdb8.png)
 
 <h2> Melhorias para o futuro </h2> 
