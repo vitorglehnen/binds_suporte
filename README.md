@@ -1,4 +1,4 @@
-![tittle-binds-suporte](https://user-images.githubusercontent.com/107063776/228081306-eb1dab6f-b361-495f-9e01-e5b8785a6dd2.png)
+![tittle-binds-suporte](https://user-images.githubusercontent.com/107063776/228299196-db1fa824-84ff-42e6-9dae-2dd9771edd14.png)
 <br>
 <br>
 <h2> Descrição do projeto </h2>
@@ -10,6 +10,15 @@
   As binds podem ser definidas por vários conjunto de teclas, eu decidi usar o **CTRL** e mais um número do NumPad, de 1 a 9. Para colar uma frase, basta segurar a tecla **CTRL+1** (por exemplo) que ele colará a frase pré-definida no campo que estiver em foco.
   
   Podemos ativar e desativar a execução do programa também sem muito esforço, já que ele roda em segundo plano sem precisar estar com uma janela aberta na barra de tarefas, possibilitando ter apenas um **ícone na bandeja**, e o mais intuitivo, o ícone vira uma **lâmpada acesa** caso estiver ativo, caso contrário, o ícone vira uma **lâmpada desligada**. Podemos fazer o **ON/OFF** do programa usando a tecla **CTRL+***. Lembrando que o programa salta uma notificação no **WINDOWS** quando inicia ou para a execução.
+ 
+Ao clicar o botão de ON/OFF:
+<br>
+![image](https://user-images.githubusercontent.com/107063776/228305073-81ac4fd1-42cd-442f-a253-c097c1344f9d.png) ![image](https://user-images.githubusercontent.com/107063776/228305136-00475245-e01d-4ed6-aa8c-ece1fa6956e1.png)
+<br>
+<br>
+Para sair do programa:
+<br>
+![image](https://user-images.githubusercontent.com/107063776/228305234-85d509a1-8400-4834-9dab-75adc6d75593.png)
 
 <h2> Melhorias para o futuro </h2> 
 
