@@ -11,19 +11,19 @@
   
   Podemos ativar e desativar a execução do programa também sem muito esforço, já que ele roda em segundo plano sem precisar estar com uma janela aberta na barra de tarefas, possibilitando ter apenas um **ícone na bandeja**, e o mais intuitivo, o ícone vira uma **lâmpada acesa** quando estiver ativo, caso contrário, o ícone vira uma **lâmpada desligada**. Podemos fazer o **ON/OFF** do programa usando a tecla **CTRL+***. Lembrando que o programa salta uma notificação no **WINDOWS** quando inicia ou para a execução.
  
-Ao clicar o botão de ON/OFF:
+**Ao clicar o botão de ON/OFF:**
 <br>
 ![image](https://user-images.githubusercontent.com/107063776/228305073-81ac4fd1-42cd-442f-a253-c097c1344f9d.png) ![image](https://user-images.githubusercontent.com/107063776/228305136-00475245-e01d-4ed6-aa8c-ece1fa6956e1.png)
 <br>
 <br>
-Para sair do programa:
+**Para sair do programa:**
 <br>
 ![image](https://user-images.githubusercontent.com/107063776/228305234-85d509a1-8400-4834-9dab-75adc6d75593.png)
 <br>
 <br>
-Ao clicar em um conjunto de teclas pre definidas, irá colar em seu campo selecionado o texto configurado (EXEMPLO):
+**Ao clicar em um conjunto de teclas pre definidas, irá colar em seu campo selecionado o texto configurado (EXEMPLO):**
 <br>
-![image](https://user-images.githubusercontent.com/107063776/228312259-20806d1a-a70b-4ebc-b806-fc823419bdb8.png)
+![228312259-20806d1a-a70b-4ebc-b806-fc823419bdb8](https://user-images.githubusercontent.com/107063776/228682174-6506aa32-1149-45aa-8b13-103e1fa635c0.png)
 
 <h2> Melhorias para o futuro </h2> 
 
