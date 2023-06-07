@@ -5,11 +5,11 @@ block_cipher = None
 
 
 a = Analysis(
-    ['main.pyw'],
+    ['main.py'],
     pathex=[],
     binaries=[],
     datas=[],
-    hiddenimports=[],
+    hiddenimports=['tkinter'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
